@@ -20,19 +20,19 @@
 
         layer_0 {
             bindings = <
-&kp ESC    &kp Q      &kp W     &kp E     &kp R        &kp T                                &kp Y        &kp U  &kp I      &kp O      &kp P      &kp LBKT
-&kp TAB    &kp A      &kp S     &kp D     &kp F        &kp G                                &kp H        &kp J  &kp K      &kp L      &kp SEMI   &kp SQT
-&kp LSHFT  &kp Z      &kp X     &kp C     &kp V        &kp B        &kp RBKT     &kp BSLH   &kp N        &kp M  &kp COMMA  &kp DOT    &kp FSLH   &kp INT_RO
-&kp LCTRL  &kp RCTRL  &kp LGUI  &kp LALT  &lt 2 LANG2  &lt 1 SPACE  &lt 3 LANG1  &kp BSPC   &lt 1 ENTER  &none  &none      &kp MINUS  &kp EQUAL  &kp INT_YEN
+&kp TAB    &kp Q      &kp W     &kp E     &kp R        &kp T                               &kp Y        &kp U  &kp I      &kp O      &kp P      &kp LBKT
+&kp TAB    &kp A      &kp S     &kp D     &kp F        &kp G                               &kp H        &kp J  &kp K      &kp L      &kp SEMI   &kp SQT
+&kp LSHFT  &kp Z      &kp X     &kp C     &kp V        &kp B        &kp RBKT     &kp BSLH  &kp N        &kp M  &kp COMMA  &kp DOT    &kp FSLH   &kp INT_RO
+&kp LCTRL  &kp RCTRL  &kp LGUI  &kp LALT  &lt 2 LANG2  &lt 1 SPACE  &lt 3 LANG1  &kp BSPC  &lt 1 ENTER  &none  &none      &kp MINUS  &kp EQUAL  &kp INT_YEN
             >;
         };
 
         layer_1 {
             bindings = <
-&trans  &kp N1  &kp N2  &kp N3  &kp N4            &kp N5                           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none
-&trans  &none   &none   &none   &none             &none                            &kp PG_UP  &mkp LCLK  &mkp MCLK  &mkp RCLK  &mkp MCLK  &none
-&trans  &none   &none   &none   &none             &none   &kp HOME        &kp END  &kp PG_DN  &mkp MB4   &none      &mkp MB5   &kp UP     &none
-&trans  &trans  &trans  &trans  &kp INT_MUHENKAN  &trans  &kp INT_HENKAN  &kp DEL  &trans     &trans     &trans     &kp LEFT   &kp DOWN   &kp RIGHT
+&kp ESC  &kp N1  &kp N2  &kp N3  &kp N4            &kp N5                           &kp N6     &kp N7     &kp N8  &kp N9     &kp N0     &none
+&trans   &none   &none   &none   &none             &none                            &kp PG_UP  &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
+&trans   &none   &none   &none   &none             &none   &kp HOME        &kp END  &kp PG_DN  &trans     &trans  &trans     &kp UP     &none
+&trans   &trans  &trans  &trans  &kp INT_MUHENKAN  &trans  &kp INT_HENKAN  &kp DEL  &trans     &trans     &trans  &kp LEFT   &kp DOWN   &kp RIGHT
             >;
         };
 
@@ -47,19 +47,19 @@
 
         layer_3 {
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &kp F11
-&trans  &none   &none   &none   &none   &none                       &kp PG_UP  &mkp LCLK  &mkp MCLK  &mkp RCLK  &mkp MCLK  &kp F12
-&trans  &none   &none   &none   &none   &none   &kp HOME  &kp END   &kp PG_DN  &mkp MB4   &none      &mkp MB5   &kp UP     &none
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &mkp MB4  &mkp MB5   &trans     &trans     &kp LEFT   &kp DOWN   &kp RIGHT
+&kp ESC  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6     &kp F7     &kp F8        &kp F9     &kp F10    &kp F11
+&trans   &none   &none   &none   &none   &none                       &kp PG_UP  &mkp LCLK  &kp UP_ARROW  &mkp RCLK  &mkp MCLK  &kp F12
+&trans   &none   &none   &none   &none   &none   &kp HOME  &kp END   &kp PG_DN  &kp LEFT   &kp DOWN      &kp RIGHT  &kp UP     &none
+&trans   &trans  &trans  &trans  &trans  &trans  &trans    &mkp MB4  &mkp MB5   &trans     &trans        &kp LEFT   &kp DOWN   &kp RIGHT
             >;
         };
 
         layer_4 {
             bindings = <
-&trans  &none   &none   &none   &none   &none                  &none   &none      &none      &none      &none      &none
-&trans  &none   &none   &none   &none   &none                  &none   &mkp LCLK  &mkp MCLK  &mkp RCLK  &mkp MCLK  &none
-&trans  &none   &none   &none   &none   &none   &none   &none  &none   &mkp MB4   &none      &mkp MB5   &none      &none
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &none  &trans  &trans     &trans     &none      &none      &none
+&trans  &none   &none   &none   &none   &none                     &none     &none      &none   &none      &none      &none
+&trans  &none   &none   &none   &none   &none                     &none     &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
+&trans  &none   &none   &none   &none   &none   &none   &none     &none     &none      &none   &none      &none      &none
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4  &mkp MB5  &trans     &trans  &none      &none      &none
             >;
         };
     };
