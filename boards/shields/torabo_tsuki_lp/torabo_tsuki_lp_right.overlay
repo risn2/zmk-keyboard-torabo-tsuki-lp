@@ -4,14 +4,14 @@
 
 &pointing_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-                        &zip_xy_scaler 5 8
-                        &zip_temp_layer 4 400>;  // トラックボール操作で Layer 4 を自動有効化（400ms でタイムアウト）
+                        &zip_xy_scaler 5 8          // 500CPI (800CPI(Default) * 5/8)
+                        &zip_temp_layer 4 400>;     // トラックボール操作で Layer 4 を自動有効化（400ms でタイムアウト）
 
     // Layer 3 有効時: スクロールモード
     scroll_mode {
         layers = <3>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
-                            &zip_xy_scaler 5 8
+                            &zip_xy_scaler 3 8          // 300CPI (800CPI(Default) * 3/8)
                             &zip_xy_to_scroll_mapper>;
     };
 };
