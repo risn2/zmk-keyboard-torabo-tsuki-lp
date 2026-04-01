@@ -11,7 +11,7 @@
     scroll_mode {
         layers = <3>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
-                            &zip_xy_scaler 3 8          // 300CPI (800CPI(Default) * 3/8)
+                            &zip_xy_scaler 1 4          // 200CPI (800CPI(Default) * 1/4)
                             &zip_xy_to_scroll_mapper>;
     };
 };
