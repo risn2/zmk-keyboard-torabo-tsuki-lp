@@ -20,10 +20,10 @@
 
         layer_0 {
             bindings = <
-&kp TAB    &kp Q      &kp W     &kp E     &kp R        &kp T                               &kp Y        &kp U  &kp I      &kp O      &kp P      &kp LBKT
-&kp TAB    &kp A      &kp S     &kp D     &kp F        &kp G                               &kp H        &kp J  &kp K      &kp L      &kp SEMI   &kp SQT
-&kp LSHFT  &kp Z      &kp X     &kp C     &kp V        &kp B        &lt 5 RBKT   &kp BSLH  &kp N        &kp M  &kp COMMA  &kp DOT    &kp FSLH   &kp INT_RO
-&kp LCTRL  &kp RCTRL  &kp LGUI  &kp LALT  &lt 2 LANG2  &lt 1 SPACE  &lt 3 LANG1  &kp BSPC  &lt 1 ENTER  &none  &none      &kp MINUS  &kp EQUAL  &kp INT_YEN
+&kp TAB    &kp Q      &kp W     &kp E     &kp R        &kp T                                 &kp Y        &kp U  &kp I      &kp O      &kp P      &kp LBKT
+&kp TAB    &kp A      &kp S     &kp D     &kp F        &kp G                                 &kp H        &kp J  &kp K      &kp L      &kp SEMI   &kp SQT
+&kp LSHFT  &kp Z      &kp X     &kp C     &kp V        &kp B        &lt 5 RBKT   &lt 6 BSLH  &kp N        &kp M  &kp COMMA  &kp DOT    &kp FSLH   &kp INT_RO
+&kp LCTRL  &kp RCTRL  &kp LGUI  &kp LALT  &lt 2 LANG2  &lt 1 SPACE  &lt 3 LANG1  &kp BSPC    &lt 1 ENTER  &none  &none      &kp MINUS  &kp EQUAL  &kp INT_YEN
             >;
         };
 
@@ -58,7 +58,7 @@
             bindings = <
 &trans  &none   &none   &none   &none   &none                   &none   &none      &none   &none      &none      &none
 &trans  &none   &none   &none   &none   &none                   &none   &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
-&trans  &none   &none   &none   &none   &none   &none   &none   &none   &none      &none   &none      &none      &none
+&trans  &none   &none   &none   &none   &none   &trans  &trans  &none   &none      &none   &none      &none      &none
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans  &none      &none      &none
             >;
         };
@@ -74,10 +74,10 @@
 
         layer_6 {
             bindings = <
-&trans  &none   &none   &none   &none   &none                   &none   &none   &none   &none  &none  &none
-&trans  &none   &none   &none   &none   &none                   &none   &none   &none   &none  &none  &none
-&trans  &none   &none   &none   &none   &none   &none   &none   &none   &none   &none   &none  &none  &none
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none  &none  &none
+&trans  &none   &none   &none   &none   &none                     &none     &none      &none   &none      &none      &none
+&trans  &none   &none   &none   &none   &none                     &none     &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
+&trans  &none   &none   &none   &none   &none   &none   &trans    &none     &none      &none   &none      &none      &none
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4  &mkp MB5  &trans     &trans  &none      &none      &none
             >;
         };
     };
