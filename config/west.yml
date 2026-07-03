@@ -25,5 +25,8 @@ manifest:
     - name: zmk-feature-non-lipo-battery-management
       remote: sekigon-gonnoc
       revision: main
+    - name: zmk-key-streamer
+      remote: srwi
+      revision: main
   self:
     path: config
