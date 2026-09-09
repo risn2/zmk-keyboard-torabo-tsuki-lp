@@ -31,7 +31,7 @@
             bindings = <
 &kp ESC  &kp N1  &kp N2  &kp N3  &kp N4            &kp N5                           &kp N6     &kp N7     &kp N8  &kp N9     &kp N0     &none
 &trans   &none   &none   &none   &none             &none                            &kp PG_UP  &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
-&trans   &none   &none   &none   &none             &none   &kp HOME        &kp END  &kp PG_DN  &trans     &trans  &trans     &kp UP     &none
+&trans   &trans  &trans  &trans  &trans            &none   &kp HOME        &kp END  &kp PG_DN  &trans     &trans  &trans     &kp UP     &none
 &trans   &trans  &trans  &trans  &kp INT_MUHENKAN  &trans  &kp INT_HENKAN  &kp DEL  &trans     &trans     &trans  &kp LEFT   &kp DOWN   &kp RIGHT
             >;
         };
@@ -49,7 +49,7 @@
             bindings = <
 &kp ESC  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6     &kp F7     &kp F8        &kp F9     &kp F10    &kp F11
 &trans   &none   &none   &none   &none   &none                       &kp PG_UP  &mkp LCLK  &kp UP_ARROW  &mkp RCLK  &mkp MCLK  &kp F12
-&trans   &none   &none   &none   &none   &none   &kp HOME  &kp END   &kp PG_DN  &kp LEFT   &kp DOWN      &kp RIGHT  &kp UP     &none
+&trans   &trans  &trans  &trans  &trans  &none   &kp HOME  &kp END   &kp PG_DN  &kp LEFT   &kp DOWN      &kp RIGHT  &kp UP     &none
 &trans   &trans  &trans  &trans  &trans  &trans  &trans    &mkp MB4  &mkp MB5   &trans     &trans        &kp LEFT   &kp DOWN   &kp RIGHT
             >;
         };
@@ -58,7 +58,7 @@
             bindings = <
 &trans  &none   &none   &none   &none   &none                   &none   &none      &none   &none      &none      &none
 &trans  &none   &none   &none   &none   &none                   &none   &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
-&trans  &none   &none   &none   &none   &none   &trans  &trans  &none   &none      &none   &none      &none      &none
+&trans  &trans  &trans  &trans  &trans  &none   &trans  &trans  &none   &none      &none   &none      &none      &none
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans  &none      &none      &none
             >;
         };
