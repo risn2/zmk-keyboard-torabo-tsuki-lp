@@ -39,7 +39,7 @@ zmk,physical-layout = &physical_layout_m;
         layer_3 { ... };  // レイヤー3（Fn・マウス・ナビ）
         layer_4 { ... };  // レイヤー4（オートマウス）
         layer_5 { ... };  // レイヤー5（テンキー）
-        layer_6 { ... };  // レイヤー6（予備）
+        layer_6 { ... };  // レイヤー6（マウス）
     };
 };
 ```
@@ -47,6 +47,8 @@ zmk,physical-layout = &physical_layout_m;
 ---
 
 ## 現在のキーマップ（Mサイズ）
+
+各図の `trans` は `&trans`、`none` は `&none` を表します。キー名がある位置には、そのキー動作が割り当てられています。
 
 ### Layer 0 — ベースレイヤー（QWERTY）
 
@@ -82,37 +84,37 @@ Layer 0 の左親指 `Space` または右親指 `Enter` の長押しで有効化
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
 │ ESC  │  1   │  2   │  3   │  4   │  5   │                  │  6   │  7   │  8   │  9   │  0   │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │                  │ PgUp │LCLK  │ none │RCLK  │MCLK  │ none │
+│trans │ none │ none │ none │ none │ none │                  │ PgUp │LCLK  │ none │RCLK  │MCLK  │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │ HOME │    │ END  │ PgDn │      │      │      │  ↑   │ none │
+│trans │trans │trans │trans │trans │ none │ HOME │    │ END  │ PgDn │trans │trans │trans │  ↑   │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │無変換 │ ■■■  │ 変換 │    │ DEL  │ ■■■  │      │      │  ←   │  ↓   │  →   │
+│trans │trans │trans │trans │無変換 │trans │ 変換 │    │ DEL  │trans │trans │trans │  ←   │  ↓   │  →   │
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-- `■■■` = `&trans`（Layer 0 の `L1+Space` / `L1+Enter` がそのまま透過）
+- `trans` = `&trans`（Layer 0 の `L1+Space` / `L1+Enter` を透過）
 - 上段: ESC（左端）、数字 `1`〜`0`
 - 中段右: PgUp、マウスクリック（LCLK、RCLK、MCLK）
 - 下段右: PgDn、↑、HOME/END
 - 最下段左: `無変換`（INT_MUHENKAN）、`変換`（INT_HENKAN）
 - 最下段右: DEL、矢印キー（←↓→）
-- `none` = `&none`（何も割り当てなし）
+- `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
 
 ### Layer 2 — 記号・BT制御レイヤー（左親指 かな 長押し）
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
-│      │ S+1  │ S+2  │ S+3  │ S+4  │ S+5  │                  │ S+6  │ S+7  │ S+8  │ S+9  │ S+0  │      │
+│trans │ S+1  │ S+2  │ S+3  │ S+4  │ S+5  │                  │ S+6  │ S+7  │ S+8  │ S+9  │ S+0  │trans │
 ├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ BT0  │ BT1  │ BT2  │ BT3  │ BT4  │                  │      │      │      │      │      │      │
+│trans │ BT0  │ BT1  │ BT2  │ BT3  │ BT4  │                  │trans │trans │trans │trans │trans │trans │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │ USB  │ BLE  │BT_NXT│      │    │      │      │      │      │      │      │      │
+│trans │trans │trans │ USB  │ BLE  │BT_NXT│trans │    │trans │trans │trans │trans │trans │trans │trans │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │ ▓▓▓▓ │      │      │    │      │      │      │      │      │      │      │
+│trans │trans │trans │trans │trans │trans │trans │    │trans │trans │trans │trans │trans │trans │trans │
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-`▓▓▓▓` = このキーの長押しでレイヤー有効化（レイヤーキー自体）。空欄はすべて `&trans`（Layer 0 透過）。
+Layer 0 の `L2+かな` を長押しすると有効になります。図中の `trans` はすべて `&trans`（Layer 0 透過）です。
 
 - 中段左: Bluetooth プロファイル選択（`BT_SEL 0`〜`BT_SEL 4`）
 - 下段左: 出力先切替（`OUT_USB` / `OUT_BLE`）、`BT_NXT`
@@ -140,40 +142,39 @@ Layer 0 の左親指 `Space` または右親指 `Enter` の長押しで有効化
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
 │ ESC  │  F1  │  F2  │  F3  │  F4  │  F5  │                  │  F6  │  F7  │  F8  │  F9  │ F10  │ F11  │
 ├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │                  │ PgUp │LCLK  │  ↑   │RCLK  │MCLK  │ F12  │
+│trans │ none │ none │ none │ none │ none │                  │ PgUp │LCLK  │  ↑   │RCLK  │MCLK  │ F12  │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │ HOME │    │ END  │ PgDn │  ←   │  ↓   │  →   │  ↑   │ none │
+│trans │trans │trans │trans │trans │ none │ HOME │    │ END  │ PgDn │  ←   │  ↓   │  →   │  ↑   │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │      │      │ ▓▓▓▓ │    │ MB4  │ MB5  │      │      │  ←   │  ↓   │  →   │
+│trans │trans │trans │trans │trans │trans │trans │    │ MB4  │ MB5  │trans │trans │  ←   │  ↓   │  →   │
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-- `▓▓▓▓` = このキーの長押しでレイヤー有効化（レイヤーキー自体）
+- Layer 0 の `L3+英数` を長押しすると有効になります
 - 上段: ESC（左端）、ファンクションキー `F1`～`F5`（左）/ `F6`～`F11`（右）
 - 中段右: PgUp、マウスクリック（LCLK、RCLK、MCLK）、↑、`F12`
 - 下段: `HOME` / `END`、PgDn、←↓→↑
 - 最下段右: `MB4`（戻る）、`MB5`（進む）、矢印キー（←↓→）
-- `none` = `&none`、空欄 = `&trans`（Layer 0 透過）
+- `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
 
 ### Layer 4 — オートマウスレイヤー
 
-トラックボール操作時に `zip_temp_layer` で自動的に有効化されるレイヤーです（設定方法は後述の「オートマウスレイヤー」セクションを参照）。
+トラックボール操作時に `zip_temp_layer` で自動的に有効化されるレイヤーです。LCLK / RCLK / MCLK が割り当てられています。MB4 / MB5 は Layer 3 と Layer 6 にあります。
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
-│      │ none │ none │ none │ none │ none │                  │ none │ none │ none │ none │ none │ none │
+│trans │ none │ none │ none │ none │ none │                  │ none │ none │ none │ none │ none │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │                  │ none │LCLK  │ none │RCLK  │MCLK  │ none │
+│trans │ none │ none │ none │ none │ none │                  │ none │LCLK  │ none │RCLK  │MCLK  │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │      │    │      │ none │ none │ none │ none │ none │ none │
+│trans │trans │trans │trans │trans │ none │trans │    │trans │ none │ none │ none │ none │ none │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │      │      │      │    │      │      │      │      │ none │ none │ none │
+│trans │trans │trans │trans │trans │trans │trans │    │trans │trans │trans │trans │ none │ none │ none │
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
 - 中段右: マウスクリック（LCLK、RCLK、MCLK）
-- 最下段: 左側の修飾キー・レイヤーキーは `&trans`（Layer 0 透過）で通常のキー入力を維持
-- それ以外は `&none`（マウス操作中に不要なキーをブロック）
+- `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
 
 ### Layer 5 — テンキーレイヤー
 
@@ -181,20 +182,20 @@ Layer 0 の左手 `[` キー（`L5+[`）の長押しで有効化。右手側に�
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
-│      │      │      │      │      │      │                  │      │  7   │  8   │  9   │ KP-  │      │
+│trans │trans │trans │trans │trans │trans │                  │trans │  7   │  8   │  9   │ KP-  │trans │
 ├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │      │      │                  │      │  4   │  5   │  6   │ KP+  │      │
+│trans │trans │trans │trans │trans │trans │                  │trans │  4   │  5   │  6   │ KP+  │trans │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │      │      │ ▓▓▓▓ │    │      │      │  1   │  2   │  3   │ KP/  │      │
+│trans │trans │trans │trans │trans │trans │trans │    │trans │trans │  1   │  2   │  3   │ KP/  │trans │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │      │      │      │    │      │  0   │      │      │  .   │ KP*  │      │
+│trans │trans │trans │trans │trans │trans │trans │    │trans │  0   │trans │trans │  .   │ KP*  │trans │
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-- `▓▓▓▓` = このキーの長押しでレイヤー有効化（レイヤーキー自体）
+- Layer 0 の `L5+[` を長押しすると有効になります
 - 右側: テンキー配列（`7` `8` `9` / `4` `5` `6` / `1` `2` `3` / `0` `.`）
 - 右側演算子: `KP-`（マイナス）、`KP+`（プラス）、`KP/`（除算）、`KP*`（乗算）
-- 空欄はすべて `&trans`（Layer 0 透過）
+- `trans` = `&trans`（Layer 0 透過）
 
 ### Layer 6 — マウスレイヤー
 
@@ -203,21 +204,20 @@ Layer 0 の右手 `]` キー（`L6+]`）の長押しで有効化。右手側に�
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
-│      │ none │ none │ none │ none │ none │                  │ none │ none │ none │ none │ none │ none │
+│trans │ none │ none │ none │ none │ none │                  │ none │ none │ none │ none │ none │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │                  │ none │LCLK  │ none │RCLK  │MCLK  │ none │
+│trans │ none │ none │ none │ none │ none │                  │ none │LCLK  │ none │RCLK  │MCLK  │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │ none │ none │ none │ none │ none │      │    │ ▓▓▓▓ │ none │ none │ none │ none │ none │ none │
+│trans │ none │ none │ none │ none │ none │ none │    │trans │ none │ none │ none │ none │ none │ none │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│      │      │      │      │      │      │      │    │ MB4  │ MB5  │      │      │ none │ none │ none │
+│trans │trans │trans │trans │trans │trans │trans │    │ MB4  │ MB5  │trans │trans │ none │ none │ none │
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-- `▓▓▓▓` = このキーの長押しでレイヤー有効化（レイヤーキー自体）
+- Layer 0 の `L6+]` を長押しすると有効になります
 - 中段右: マウスクリック（LCLK、RCLK、MCLK）
-- 最下段左側: `&trans`（Layer 0 透過）で修飾キー・レイヤーキーを維持
-- 最下段右: `MB4`（戻る）、`MB5`（進む）
-- それ以外は `&none`（何も割り当てなし）
+- `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
+- 最下段右側に `MB4`（戻る）、`MB5`（進む）
 
 ---
 
@@ -593,10 +593,12 @@ JIS 配列にのみ存在する物理キーに対応するキーコードです�
 
 ### 現在の構成
 
-トラックボール（PAW3222）は現在 **カーソル移動モード** のみで動作しています。
+現在は通常時にカーソル移動、指定レイヤーが有効な間はスクロールとして動作します。左右とも通常時は軸反転と `5/8` のスケーリングを行い、Layer 4 を 400 ms の一時レイヤーとして有効化します。Layer 3 ではスクロールになり、右側のトラックボールは Layer 6 でもスクロールします。
 
 ```
-PAW3222 (SPI) → pointing_listener → zip_xy_transform（軸反転）→ カーソル移動
+通常: PAW3222 → 軸反転 → 5/8 スケーリング → Layer 4（400 ms）
+Layer 3: 軸反転（X）→ 1/4 スケーリング → スクロール
+右側 Layer 6: 軸反転（X）→ 1/4 スケーリング → スクロール
 ```
 
 **関連ファイル:**
@@ -605,8 +607,8 @@ PAW3222 (SPI) → pointing_listener → zip_xy_transform（軸反転）→ カ�
 |---------|------|
 | `snippets/input-trackball/input-trackball.overlay` | PAW3222 ドライバ有効化 |
 | `snippets/input-listener/input-listener.overlay` | リスナー有効化 + デバイス接続 |
-| `boards/shields/.../torabo_tsuki_lp_left.overlay` | 左側: 軸反転設定 |
-| `boards/shields/.../torabo_tsuki_lp_right.overlay` | 右側: 軸反転設定 |
+| `boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_left.overlay` | 左側: 軸反転、速度調整、自動 Layer 4、Layer 3 のスクロール |
+| `boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_right.overlay` | 右側: 左側と同様の設定。Layer 3 / 6 でスクロール |
 
 ### レイヤーベースのスクロールモード設定
 
@@ -614,39 +616,24 @@ ZMK の `zmk,input-listener` は **レイヤーごとに input-processors を切
 
 #### 設定方法
 
-左側の overlay ファイル `boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_left.overlay` を編集します:
+設定は左右それぞれの overlay ファイルで行います。現在の左側設定は次のとおりです:
 
-**変更前:**
 ```dts
-#include "torabo_tsuki_lp.dtsi"
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
-
 &pointing_listener {
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-};
-```
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+                        &zip_xy_scaler 5 8
+                        &zip_temp_layer 4 400>;
 
-**変更後（例: Layer 1 でスクロール）:**
-```dts
-#include "torabo_tsuki_lp.dtsi"
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
-
-&pointing_listener {
-    // デフォルト: カーソル移動（軸反転）
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-
-    // Layer 1 有効時: スクロールモード
     scroll_mode {
-        layers = <1>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+        layers = <3>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
+                            &zip_xy_scaler 1 4
                             &zip_xy_to_scroll_mapper>;
     };
 };
 ```
 
-右側の overlay `torabo_tsuki_lp_right.overlay` にも同様の `scroll_mode` 子ノードを追加してください（右側にトラックボールがある場合）。
+右側の `scroll_mode` は `layers = <3 6>;` で、Layer 3 と Layer 6 の両方を対象にします。両方の overlay に同じ通常時の設定（`5/8` と `zip_temp_layer 4 400`）があります。
 
 #### ダブルトラックボール構成の場合
 
@@ -654,21 +641,23 @@ ZMK の `zmk,input-listener` は **レイヤーごとに input-processors を切
 
 ```dts
 &pointing_device_split_listener {
-    // 既存の input-processors の後に追加
     scroll_mode {
-        layers = <1>;
+        layers = <3>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
                             &zip_xy_to_scroll_mapper>;
     };
 };
 ```
 
+この例は split listener を使う構成向けです。現在の左右別 overlay の設定とは併用せず、利用する入力構成に合わせて設定してください。
+
 #### 動作イメージ
 
-現在のキーマップでは、Layer 1 は `Space`（左親指）または `Enter`（右親指）の長押しで有効化されます。
+Layer 3 は `L3+英数` の長押し、Layer 6 は右手 `]`（`L6+]`）の長押しで有効化されます。
 
 - **通常時**: トラックボール = カーソル移動
-- **Space / Enter 長押し中**: トラックボール = スクロール
+- **Layer 3 有効時**: 左右のトラックボール = スクロール
+- **Layer 6 有効時**: 右側のトラックボール = スクロール
 
 #### スクロール速度の調整
 
@@ -676,8 +665,8 @@ ZMK の `zmk,input-listener` は **レイヤーごとに input-processors を切
 
 ```dts
 scroll_mode {
-    layers = <1>;
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+    layers = <3>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
                         &zip_xy_scaler 1 4     // 移動量を 1/4 に縮小
                         &zip_xy_to_scroll_mapper>;
 };
@@ -691,7 +680,7 @@ scroll_mode {
 
 ```dts
 scroll_mode {
-    layers = <1 3>;   // Layer 1 と Layer 3 の両方でスクロール
+    layers = <3 6>;   // Layer 3 と Layer 6 の両方でスクロール
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
                         &zip_xy_to_scroll_mapper>;
 };
@@ -712,7 +701,7 @@ scroll_mode {
 
 ### 概要
 
-トラックボールを動かすと **自動的にマウスボタンレイヤーが有効化** され、一定時間操作が止まると自動で解除される機能です。ZMK の `zip_temp_layer` input-processor で実現します。
+トラックボールを動かすと **自動的にマウスボタンレイヤーが有効化** され、一定時間操作が止まると自動で解除される機能です。現在は左右の overlay で Layer 4 が 400 ms の一時レイヤーとして設定されています。ZMK の `zip_temp_layer` input-processor で実現します。
 
 これにより、マウスボタン（LCLK / RCLK など）を使うために手動でレイヤーキーを押す必要がなくなります。
 
@@ -725,7 +714,7 @@ scroll_mode {
 
 ### 設定方法
 
-`boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_left.overlay` の `input-processors` に `zip_temp_layer` を追加します。
+現在の左右の overlay には `zip_temp_layer 4 400` が設定済みです。時間や対象レイヤーを変更する場合は、左右の overlay の `input-processors` を編集します。
 
 #### 構文
 
@@ -738,47 +727,38 @@ scroll_mode {
 | `LAYER_NUM` | 一時的に有効化するレイヤー番号 |
 | `TIMEOUT_MS` | ポインター停止後にレイヤーを解除するまでの時間（ミリ秒） |
 
-#### 設定例: Layer 1 をオートマウスレイヤーにする
+#### 現在の設定: Layer 4 をオートマウスレイヤーにする
 
-現在の Layer 1 には既に LCLK / RCLK / MCLK / MB4 / MB5 が配置されているため、そのまま利用できます。
+Layer 4 には LCLK / RCLK / MCLK が配置されています。MB4 / MB5 は Layer 3 と Layer 6 に割り当てられています。
 
-**変更前:**
-```dts
-&pointing_listener {
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-
-    scroll_mode {
-        layers = <3>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-                            &zip_xy_to_scroll_mapper>;
-    };
-};
-```
-
-**変更後:**
 ```dts
 &pointing_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-                        &zip_temp_layer 1 500>;   // トラックボール操作で Layer 1 を自動有効化（500ms でタイムアウト）
+                        &zip_xy_scaler 5 8
+                        &zip_temp_layer 4 400>;   // トラックボール操作で Layer 4 を自動有効化（400ms でタイムアウト）
 
     scroll_mode {
         layers = <3>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
+                            &zip_xy_scaler 1 4
                             &zip_xy_to_scroll_mapper>;
     };
 };
 ```
 
-右側の overlay `torabo_tsuki_lp_right.overlay` にも同様の変更が必要です。ダブルトラックボール構成では `input-split-listener.overlay` にも追加してください。
+右側 overlay の `scroll_mode` は `layers = <3 6>;` です。split listener を使う場合は、利用する構成に合わせてその overlay にも同様の処理を設定します。
 
 #### プロセッサの順序
 
 `input-processors` のチェーンは**記述順に実行**されます。`zip_temp_layer` は `zip_xy_transform`（軸反転）の**後**に配置してください:
 
 ```dts
-input-processors = <&zip_xy_transform (...)   // 1. まず軸反転
-                    &zip_temp_layer 1 500>;    // 2. その後レイヤー切替
+input-processors = <&zip_xy_transform (...)
+                    &zip_xy_scaler 5 8
+                    &zip_temp_layer 4 400>;
 ```
+
+現在は軸反転の後に `5/8` スケーリングを行い、その後 Layer 4 を有効化しています。
 
 ### タイムアウト値の目安
 
@@ -791,13 +771,13 @@ input-processors = <&zip_xy_transform (...)   // 1. まず軸反転
 
 ### 専用マウスレイヤーを新設する場合
 
-現在の Layer 4 がオートマウス専用レイヤーとして既に定義されています。マウスボタン（LCLK / RCLK / MCLK / MB4 / MB5）のみを配置し、それ以外は `&none` または `&trans` で不要なキーをブロックしています。
+現在の Layer 4 がオートマウス用レイヤーとして定義されています。LCLK / RCLK / MCLK を配置し、それ以外は `&none` または `&trans` で不要なキーをブロックしています。
 
 overlay の `zip_temp_layer` を Layer 4 に設定することで有効化できます:
 
 ```dts
 input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-                    &zip_temp_layer 4 500>;
+                    &zip_temp_layer 4 400>;
 ```
 
 ### 注意事項
@@ -813,7 +793,7 @@ input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFOR
 
 ### デフォルト CPI
 
-PAW3222 センサーの `res-cpi` プロパティが未設定の場合、**ハードウェアデフォルトの 800 CPI** で動作します。
+PAW3222 の `res-cpi` は未設定なのでセンサーは **800 CPI** で動作します。左右の overlay では通常時に `zip_xy_scaler 5 8` を適用しており、カーソル移動の実効値は約 500 CPI 相当です。スクロール時は `1/4` スケーリングで約 200 CPI 相当です。
 
 ### CPI の設定方法
 
@@ -880,8 +860,9 @@ pointing_device: pointing_device@0 {
 | res-cpi | scaler | 実効 CPI |
 |---------|--------|---------|
 | 800（既定） | なし | 800 |
+| 800 | `5 8` | 500（現在の通常時） |
+| 800 | `1 4` | 200（現在のスクロール時） |
 | 800 | `1 2` | 400 |
-| 800 | `1 4` | 200 |
 | 608 | なし | 608 |
 | 608 | `2 3` | ~405 |
 | 1216 | `1 2` | 608 |
