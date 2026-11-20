@@ -4,6 +4,10 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#if defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+#include <behaviors/hires_dial.dtsi>
+#endif
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -24,6 +28,11 @@
 &kp TAB    &kp A      &kp S     &kp D     &kp F        &kp G                                 &kp H        &kp J  &kp K      &kp L      &kp SEMI   &kp SQT
 &kp LSHFT  &kp Z      &kp X     &kp C     &kp V        &kp B        &lt 5 RBKT   &lt 6 BSLH  &kp N        &kp M  &kp COMMA  &kp DOT    &kp FSLH   &kp INT_RO
 &kp LCTRL  &kp RCTRL  &kp LGUI  &kp LALT  &lt 2 LANG2  &lt 1 SPACE  &lt 3 LANG1  &kp BSPC    &lt 1 ENTER  &none  &none      &kp MINUS  &kp EQUAL  &kp INT_YEN
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MCLK
+#elif defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&mkp MCLK
+#endif
             >;
         };
 
@@ -32,7 +41,11 @@
 &kp ESC  &kp N1  &kp N2  &kp N3  &kp N4            &kp N5                           &kp N6     &kp N7     &kp N8  &kp N9     &kp N0     &none
 &trans   &none   &none   &none   &none             &none                            &kp PG_UP  &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
 &trans   &trans  &trans  &trans  &trans            &none   &kp HOME        &kp END  &kp PG_DN  &trans     &trans  &trans     &kp UP     &none
-&trans   &trans  &trans  &trans  &kp INT_MUHENKAN  &trans  &kp INT_HENKAN  &kp DEL  &trans     &trans     &trans  &kp LEFT   &kp DOWN   &kp RIGHT
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MCLK
+#elif defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&mkp MCLK
+#endif
             >;
         };
 
@@ -42,6 +55,11 @@
 &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &trans      &trans      &trans      &trans      &trans      &trans
 &trans  &trans        &trans        &out OUT_USB  &out OUT_BLE  &bt BT_NXT    &trans  &trans  &trans      &trans      &trans      &trans      &trans      &trans
 &trans  &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans      &trans      &trans      &trans      &trans      &trans
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MCLK
+#elif defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&kp C_MUTE
+#endif
             >;
         };
 
@@ -51,6 +69,11 @@
 &trans   &none   &none   &none   &none   &none                       &kp PG_UP  &mkp LCLK  &kp UP_ARROW  &mkp RCLK  &mkp MCLK  &kp F12
 &trans   &trans  &trans  &trans  &trans  &none   &kp HOME  &kp END   &kp PG_DN  &kp LEFT   &kp DOWN      &kp RIGHT  &kp UP     &none
 &trans   &trans  &trans  &trans  &trans  &trans  &trans    &mkp MB4  &mkp MB5   &trans     &trans        &kp LEFT   &kp DOWN   &kp RIGHT
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MCLK
+#elif defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&hires_dial_radial_controller_button
+#endif
             >;
         };
 
@@ -60,6 +83,11 @@
 &trans  &none   &none   &none   &none   &none                   &none   &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
 &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans  &none   &none      &none   &none      &none      &none
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans  &none      &none      &none
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MCLK
+#elif defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&hires_dial_radial_controller_button
+#endif
             >;
         };
 
@@ -69,6 +97,11 @@
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &kp N4  &kp N5  &kp N6   &kp KP_PLUS      &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2  &kp N3   &kp KP_DIVIDE    &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N0  &trans  &trans  &kp DOT  &kp KP_ASTERISK  &trans
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MCLK
+#elif defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&hires_dial_radial_controller_button
+#endif
             >;
         };
 
@@ -78,7 +111,31 @@
 &trans  &none   &none   &none   &none   &none                     &none     &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &none
 &trans  &none   &none   &none   &none   &none   &none   &trans    &none     &none      &none   &none      &none      &none
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4  &mkp MB5  &trans     &trans  &none      &none      &none
+#if defined(TORABO_TSUKI_LP_KSCAN_4_DIRECTION_SWITCH)
+&msc SCRL_UP &msc SCRL_DOWN &msc SCRL_LEFT &msc SCRL_RIGHT &mkp MCLK
+#elif defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&hires_dial_radial_controller_button
+#endif
             >;
         };
     };
 };
+
+#if defined(TORABO_TSUKI_LP_INPUT_HIRES_DIAL)
+&{/keymap/layer_0} {
+    sensor-bindings = <&hires_dial_scroll 1 1>;
+};
+
+&{/keymap/layer_1} {
+    sensor-bindings = <&hires_dial_scroll 10 1>;
+};
+
+&{/keymap/layer_2} {
+    sensor-bindings = <&hires_dial_encoder C_VOL_UP C_VOL_DN>;
+};
+
+&{/keymap/layer_3} {
+    /* Quarter-speed Radial Controller motion: output/input = 1/4. */
+    sensor-bindings = <&hires_dial_radial_controller 4 1>;
+};
+#endif

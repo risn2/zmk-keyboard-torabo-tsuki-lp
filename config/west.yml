@@ -23,12 +23,18 @@ manifest:
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc
       revision: torabo-tsuki
+    - name: zmk-driver-iqs7211e
+      remote: sekigon-gonnoc
     - name: zmk-feature-cdc-acm-bootloader-trigger
       remote: sekigon-gonnoc
       revision: v0.2
     - name: zmk-feature-non-lipo-battery-management
       remote: sekigon-gonnoc
       revision: main
+    - name: zmk-driver-kscan-4-direction-switch
+      remote: sekigon-gonnoc
+    - name: zmk-driver-hires-dial
+      remote: sekigon-gonnoc
     - name: zmk-raw-hid # <-- Raw HID module
       remote: zzeneg
       revision: main
