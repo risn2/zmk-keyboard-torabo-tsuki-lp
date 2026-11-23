@@ -11,7 +11,7 @@
         bt_clear {
             bindings = <&bt BT_CLR>;
             key-positions = <16 17>;
-            layers = <3>;
+            layers = <6>;
         };
     };
 

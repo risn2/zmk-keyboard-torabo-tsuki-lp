@@ -35,11 +35,12 @@ zmk,physical-layout = &physical_layout_m;
     keymap {
         layer_0 { ... };  // レイヤー0（ベース）
         layer_1 { ... };  // レイヤー1（ナビ・マウス・数字）
-        layer_2 { ... };  // レイヤー2（記号・BT制御）
-        layer_3 { ... };  // レイヤー3（Fn・マウス・ナビ）
-        layer_4 { ... };  // レイヤー4（オートマウス）
-        layer_5 { ... };  // レイヤー5（テンキー）
-        layer_6 { ... };  // レイヤー6（マウス）
+        layer_2 { ... };  // レイヤー2（スクロール・Fn・ナビ）
+        layer_3 { ... };  // レイヤー3（オートマウス）
+        layer_4 { ... };  // レイヤー4（テンキー）
+        layer_5 { ... };  // レイヤー5（マウス）
+        layer_6 { ... };  // レイヤー6（Bluetooth）
+        layer_7 { ... };  // レイヤー7（未使用）
     };
 };
 ```
@@ -58,18 +59,18 @@ zmk,physical-layout = &physical_layout_m;
 ├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
 │ TAB  │  A   │  S   │  D   │  F   │  G   │                  │  H   │  J   │  K   │  L   │  ;   │  :   │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│LSHFT │  Z   │  X   │  C   │  V   │  B   │ L5+[ │    │ L6+] │  N   │  M   │  ,   │  .   │  /   │  ろ   │
+│LSHFT │  Z   │  X   │  C   │  V   │  B   │ L4+[ │    │ L5+] │  N   │  M   │  ,   │  .   │  /   │  ろ   │
 ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│LCTRL │RCTRL │ GUI  │ ALT  │L2+かな│L1+SPC│L3+英数│   │ BSPC │L1+ENT│ none │ none │  -   │  ^   │  ¥   │
+│LCTRL │RCTRL │ GUI  │ ALT  │L6+かな│L1+SPC│L2+英数│   │ BSPC │L1+ENT│ none │ none │  -   │  ^   │  ¥   │
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
 - `L1+SPC`: ホールドで Layer 1（ナビ・マウス）、タップで Space
 - `L1+ENT`: ホールドで Layer 1（ナビ・マウス）、タップで Enter
-- `L2+かな`: ホールドで Layer 2（記号・BT制御）、タップでかな（LANGUAGE_2）
-- `L3+英数`: ホールドで Layer 3（Fn・マウス・ナビ）、タップで英数（LANGUAGE_1）
-- `L5+[`: ホールドで Layer 5（テンキー）、タップで `[`（US キーコード `RBKT`）
-- `L6+]`: ホールドで Layer 6（マウス）、タップで `]`（US キーコード `BSLH`）
+- `L6+かな`: ホールドで Layer 6（Bluetooth）、タップでかな（LANGUAGE_2）
+- `L2+英数`: ホールドで Layer 2（スクロール・Fn・ナビ）、タップで英数（LANGUAGE_1）
+- `L4+[`: ホールドで Layer 4（テンキー）、タップで `[`（US キーコード `RBKT`）
+- `L5+]`: ホールドで Layer 5（マウス）、タップで `]`（US キーコード `BSLH`）
 - `@`: JIS 配列での出力（US キーコード `LBKT`）
 - `ろ`: JIS 固有キー `INT_RO`（`\` / `_`）
 - `¥`: JIS 固有キー `INT_YEN`
@@ -100,43 +101,7 @@ Layer 0 の左親指 `Space` または右親指 `Enter` の長押しで有効化
 - 最下段右: DEL、矢印キー（←↓→）
 - `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
 
-### Layer 2 — 記号・BT制御レイヤー（左親指 かな 長押し）
-
-```
-┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
-│trans │ S+1  │ S+2  │ S+3  │ S+4  │ S+5  │                  │ S+6  │ S+7  │ S+8  │ S+9  │ S+0  │trans │
-├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
-│trans │ BT0  │ BT1  │ BT2  │ BT3  │ BT4  │                  │trans │trans │trans │trans │trans │trans │
-├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│trans │trans │trans │ USB  │ BLE  │BT_NXT│trans │    │trans │trans │trans │trans │trans │trans │trans │
-├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-│trans │trans │trans │trans │trans │trans │trans │    │trans │trans │trans │trans │trans │trans │trans │
-└──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
-```
-
-Layer 0 の `L2+かな` を長押しすると有効になります。図中の `trans` はすべて `&trans`（Layer 0 透過）です。
-
-- 中段左: Bluetooth プロファイル選択（`BT_SEL 0`〜`BT_SEL 4`）
-- 下段左: 出力先切替（`OUT_USB` / `OUT_BLE`）、`BT_NXT`
-
-**コンボ**: このレイヤーでキーポジション 16 + 17（BT3 + BT4）を同時押し → **BT_CLR**（Bluetooth クリア）
-
-`S+` は Shift の略。JIS 配列での実際の出力:
-
-| 表記 | ZMK キーコード | JIS 出力 |
-|------|---------------|----------|
-| S+1 | `LS(N1)` | `!` |
-| S+2 | `LS(N2)` | `"` |
-| S+3 | `LS(N3)` | `#` |
-| S+4 | `LS(N4)` | `$` |
-| S+5 | `LS(N5)` | `%` |
-| S+6 | `LS(N6)` | `&` |
-| S+7 | `LS(N7)` | `'` |
-| S+8 | `LS(N8)` | `(` |
-| S+9 | `LS(N9)` | `)` |
-| S+0 | `LS(N0)` | *(なし)* |
-
-### Layer 3 — ファンクション・マウス・ナビレイヤー（左親指 英数 長押し）
+### Layer 2 — スクロール・Fn・ナビレイヤー（左親指 英数 長押し）
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -150,16 +115,17 @@ Layer 0 の `L2+かな` を長押しすると有効になります。図中の `
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-- Layer 0 の `L3+英数` を長押しすると有効になります
-- 上段: ESC（左端）、ファンクションキー `F1`～`F5`（左）/ `F6`～`F11`（右）
+Layer 0 の `L2+英数` を長押しすると有効になります。トラックボールもこのレイヤーでスクロールモードになります。図中の `trans` はすべて `&trans`（Layer 0 透過）です。
+
+- 上段: ESC、ファンクションキー `F1`～`F5`（左）/ `F6`～`F11`（右）
 - 中段右: PgUp、マウスクリック（LCLK、RCLK、MCLK）、↑、`F12`
 - 下段: `HOME` / `END`、PgDn、←↓→↑
 - 最下段右: `MB4`（戻る）、`MB5`（進む）、矢印キー（←↓→）
 - `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
 
-### Layer 4 — オートマウスレイヤー
+### Layer 3 — オートマウスレイヤー
 
-トラックボール操作時に `zip_temp_layer` で自動的に有効化されるレイヤーです。LCLK / RCLK / MCLK が割り当てられています。MB4 / MB5 は Layer 3 と Layer 6 にあります。
+トラックボール操作時に `zip_temp_layer` で自動的に有効化されるレイヤーです。LCLK / RCLK / MCLK が割り当てられています。
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -176,9 +142,7 @@ Layer 0 の `L2+かな` を長押しすると有効になります。図中の `
 - 中段右: マウスクリック（LCLK、RCLK、MCLK）
 - `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
 
-### Layer 5 — テンキーレイヤー
-
-Layer 0 の左手 `[` キー（`L5+[`）の長押しで有効化。右手側にテンキー配列を提供。
+### Layer 4 — テンキーレイヤー
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -192,15 +156,15 @@ Layer 0 の左手 `[` キー（`L5+[`）の長押しで有効化。右手側に�
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-- Layer 0 の `L5+[` を長押しすると有効になります
+Layer 0 の左手 `[` キー（`L4+[`）の長押しで有効化。右手側にテンキー配列を提供します。
+
 - 右側: テンキー配列（`7` `8` `9` / `4` `5` `6` / `1` `2` `3` / `0` `.`）
 - 右側演算子: `KP-`（マイナス）、`KP+`（プラス）、`KP/`（除算）、`KP*`（乗算）
 - `trans` = `&trans`（Layer 0 透過）
 
-### Layer 6 — マウスレイヤー
+### Layer 5 — マウスレイヤー
 
-Layer 0 の右手 `]` キー（`L6+]`）の長押しで有効化。右手側にマウス操作を提供
-右手だけでマウス操作を完結したい場合に使用する
+Layer 0 の右手 `]` キー（`L5+]`）の長押しで有効化。右手側にマウス操作を提供します。
 
 ```
 ┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
@@ -214,10 +178,45 @@ Layer 0 の右手 `]` キー（`L6+]`）の長押しで有効化。右手側に�
 └──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
 ```
 
-- Layer 0 の `L6+]` を長押しすると有効になります
+- Layer 0 の `L5+]` を長押しすると有効になります
 - 中段右: マウスクリック（LCLK、RCLK、MCLK）
 - `trans` = `&trans`（Layer 0 透過）、`none` = `&none`（下位レイヤーも無効）
 - 最下段右側に `MB4`（戻る）、`MB5`（進む）
+
+### Layer 6 — Bluetooth レイヤー（左親指 かな 長押し）
+
+```
+┌──────┬──────┬──────┬──────┬──────┬──────┐                  ┌──────┬──────┬──────┬──────┬──────┬──────┐
+│trans │ S+1  │ S+2  │ S+3  │ S+4  │ S+5  │                  │ S+6  │ S+7  │ S+8  │ S+9  │ S+0  │trans │
+├──────┼──────┼──────┼──────┼──────┼──────┤                  ├──────┼──────┼──────┼──────┼──────┼──────┤
+│trans │ BT0  │ BT1  │ BT2  │ BT3  │ BT4  │                  │trans │trans │trans │trans │trans │trans │
+├──────┼──────┼──────┼──────┼──────┼──────┼──────┐    ┌──────┼──────┼──────┼──────┼──────┼──────┼──────┤
+│trans │trans │trans │ USB  │ BLE  │BT_NXT│trans │    │trans │trans │trans │trans │trans │trans │trans │
+├──────┼──────┼──────┼──────┼──────┼──────┼──────┤    ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
+│trans │trans │trans │trans │trans │trans │trans │    │trans │trans │trans │trans │trans │trans │trans │
+└──────┴──────┴──────┴──────┴──────┴──────┴──────┘    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
+```
+
+Layer 0 の `L6+かな` を長押しすると有効になります。図中の `trans` はすべて `&trans`（Layer 0 透過）です。
+
+- 中段左: Bluetooth プロファイル選択（`BT_SEL 0`〜`BT_SEL 4`）
+- 下段左: 出力先切替（`OUT_USB` / `OUT_BLE`）、`BT_NXT`
+- キーポジション 16 + 17（BT3 + BT4）の同時押し: `BT_CLR`（Bluetooth クリア）
+
+`S+` は Shift の略。JIS 配列での実際の出力:
+
+| 表記 | ZMK キーコード | JIS 出力 |
+|------|---------------|----------|
+| S+1 | `LS(N1)` | `!` |
+| S+2 | `LS(N2)` | `"` |
+| S+3 | `LS(N3)` | `#` |
+| S+4 | `LS(N4)` | `$` |
+| S+5 | `LS(N5)` | `%` |
+| S+6 | `LS(N6)` | `&` |
+| S+7 | `LS(N7)` | `'` |
+| S+8 | `LS(N8)` | `(` |
+| S+9 | `LS(N9)` | `)` |
+| S+0 | `LS(N0)` | *(なし)* |
 
 ---
 
@@ -354,12 +353,12 @@ combos {
 };
 ```
 
-例: Layer 2 でポジション 16+17 を同時押しすると Bluetooth クリア
+例: Layer 6 でポジション 16+17 を同時押しすると Bluetooth クリア
 ```dts
 bt_clear {
     bindings = <&bt BT_CLR>;
     key-positions = <16 17>;
-    layers = <2>;
+    layers = <6>;
 };
 ```
 
@@ -570,7 +569,7 @@ JIS 配列にのみ存在する物理キーに対応するキーコードです�
 
 ### 現在のキーマップと JIS での実際の出力
 
-現在の Layer 2 の記号が JIS 配列でどう出力されるかの対応です。
+現在の Layer 6 の記号が JIS 配列でどう出力されるかの対応です。
 
 | キーマップの記述 | US での出力 | JIS での実際の出力 |
 |-----------------|------------|-------------------|
@@ -593,12 +592,12 @@ JIS 配列にのみ存在する物理キーに対応するキーコードです�
 
 ### 現在の構成
 
-現在は通常時にカーソル移動、指定レイヤーが有効な間はスクロールとして動作します。左右とも通常時は軸反転と `5/8` のスケーリングを行い、Layer 4 を 400 ms の一時レイヤーとして有効化します。Layer 3 ではスクロールになり、右側のトラックボールは Layer 6 でもスクロールします。
+現在は通常時にカーソル移動、指定レイヤーが有効な間はスクロールとして動作します。左右とも通常時は軸反転と `5/8` のスケーリングを行い、Layer 3 を 400 ms の一時レイヤーとして有効化します。Layer 2 ではスクロールになり、右側のトラックボールは Layer 5 でもスクロールします。
 
 ```
-通常: PAW3222 → 軸反転 → 5/8 スケーリング → Layer 4（400 ms）
-Layer 3: 軸反転（X）→ 1/4 スケーリング → スクロール
-右側 Layer 6: 軸反転（X）→ 1/4 スケーリング → スクロール
+通常: PAW3222 → 軸反転 → 5/8 スケーリング → Layer 3（400 ms）
+Layer 2: 軸反転（X）→ 1/4 スケーリング → スクロール
+右側 Layer 5: 軸反転（X）→ 1/4 スケーリング → スクロール
 ```
 
 **関連ファイル:**
@@ -607,8 +606,8 @@ Layer 3: 軸反転（X）→ 1/4 スケーリング → スクロール
 |---------|------|
 | `snippets/input-trackball/input-trackball.overlay` | PAW3222 ドライバ有効化 |
 | `snippets/input-listener/input-listener.overlay` | リスナー有効化 + デバイス接続 |
-| `boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_left.overlay` | 左側: 軸反転、速度調整、自動 Layer 4、Layer 3 のスクロール |
-| `boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_right.overlay` | 右側: 左側と同様の設定。Layer 3 / 6 でスクロール |
+| `boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_left.overlay` | 左側: 軸反転、速度調整、自動 Layer 3、Layer 2 のスクロール |
+| `boards/shields/torabo_tsuki_lp/torabo_tsuki_lp_right.overlay` | 右側: 左側と同様の設定。Layer 2 / 5 でスクロール |
 
 ### レイヤーベースのスクロールモード設定
 
@@ -622,10 +621,10 @@ ZMK の `zmk,input-listener` は **レイヤーごとに input-processors を切
 &pointing_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
                         &zip_xy_scaler 5 8
-                        &zip_temp_layer 4 400>;
+                        &zip_temp_layer 3 400>;
 
     scroll_mode {
-        layers = <3>;
+        layers = <2>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
                             &zip_xy_scaler 1 4
                             &zip_xy_to_scroll_mapper>;
@@ -633,7 +632,7 @@ ZMK の `zmk,input-listener` は **レイヤーごとに input-processors を切
 };
 ```
 
-右側の `scroll_mode` は `layers = <3 6>;` で、Layer 3 と Layer 6 の両方を対象にします。両方の overlay に同じ通常時の設定（`5/8` と `zip_temp_layer 4 400`）があります。
+右側の `scroll_mode` は `layers = <2 5>;` で、Layer 2 と Layer 5 の両方を対象にします。両方の overlay に同じ通常時の設定（`5/8` と `zip_temp_layer 3 400`）があります。
 
 #### ダブルトラックボール構成の場合
 
@@ -642,7 +641,7 @@ ZMK の `zmk,input-listener` は **レイヤーごとに input-processors を切
 ```dts
 &pointing_device_split_listener {
     scroll_mode {
-        layers = <3>;
+        layers = <2>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
                             &zip_xy_to_scroll_mapper>;
     };
@@ -653,11 +652,11 @@ ZMK の `zmk,input-listener` は **レイヤーごとに input-processors を切
 
 #### 動作イメージ
 
-Layer 3 は `L3+英数` の長押し、Layer 6 は右手 `]`（`L6+]`）の長押しで有効化されます。
+Layer 2 は `L2+英数` の長押し、Layer 5 は右手 `]`（`L5+]`）の長押しで有効化されます。
 
 - **通常時**: トラックボール = カーソル移動
-- **Layer 3 有効時**: 左右のトラックボール = スクロール
-- **Layer 6 有効時**: 右側のトラックボール = スクロール
+- **Layer 2 有効時**: 左右のトラックボール = スクロール
+- **Layer 5 有効時**: 右側のトラックボール = スクロール
 
 #### スクロール速度の調整
 
@@ -665,7 +664,7 @@ Layer 3 は `L3+英数` の長押し、Layer 6 は右手 `]`（`L6+]`）の長�
 
 ```dts
 scroll_mode {
-    layers = <3>;
+    layers = <2>;
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
                         &zip_xy_scaler 1 4     // 移動量を 1/4 に縮小
                         &zip_xy_to_scroll_mapper>;
@@ -680,7 +679,7 @@ scroll_mode {
 
 ```dts
 scroll_mode {
-    layers = <3 6>;   // Layer 3 と Layer 6 の両方でスクロール
+    layers = <2 5>;   // Layer 2 と Layer 5 の両方でスクロール
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
                         &zip_xy_to_scroll_mapper>;
 };
@@ -701,7 +700,7 @@ scroll_mode {
 
 ### 概要
 
-トラックボールを動かすと **自動的にマウスボタンレイヤーが有効化** され、一定時間操作が止まると自動で解除される機能です。現在は左右の overlay で Layer 4 が 400 ms の一時レイヤーとして設定されています。ZMK の `zip_temp_layer` input-processor で実現します。
+トラックボールを動かすと **自動的にマウスボタンレイヤーが有効化** され、一定時間操作が止まると自動で解除される機能です。現在は左右の overlay で Layer 3 が 400 ms の一時レイヤーとして設定されています。ZMK の `zip_temp_layer` input-processor で実現します。
 
 これにより、マウスボタン（LCLK / RCLK など）を使うために手動でレイヤーキーを押す必要がなくなります。
 
@@ -714,7 +713,7 @@ scroll_mode {
 
 ### 設定方法
 
-現在の左右の overlay には `zip_temp_layer 4 400` が設定済みです。時間や対象レイヤーを変更する場合は、左右の overlay の `input-processors` を編集します。
+現在の左右の overlay には `zip_temp_layer 3 400` が設定済みです。時間や対象レイヤーを変更する場合は、左右の overlay の `input-processors` を編集します。
 
 #### 構文
 
@@ -727,18 +726,18 @@ scroll_mode {
 | `LAYER_NUM` | 一時的に有効化するレイヤー番号 |
 | `TIMEOUT_MS` | ポインター停止後にレイヤーを解除するまでの時間（ミリ秒） |
 
-#### 現在の設定: Layer 4 をオートマウスレイヤーにする
+#### 現在の設定: Layer 3 をオートマウスレイヤーにする
 
-Layer 4 には LCLK / RCLK / MCLK が配置されています。MB4 / MB5 は Layer 3 と Layer 6 に割り当てられています。
+Layer 3 には LCLK / RCLK / MCLK が配置されています。MB4 / MB5 は Layer 2 と Layer 5 に割り当てられています。
 
 ```dts
 &pointing_listener {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
                         &zip_xy_scaler 5 8
-                        &zip_temp_layer 4 400>;   // トラックボール操作で Layer 4 を自動有効化（400ms でタイムアウト）
+                        &zip_temp_layer 3 400>;   // トラックボール操作で Layer 3 を自動有効化（400ms でタイムアウト）
 
     scroll_mode {
-        layers = <3>;
+        layers = <2>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
                             &zip_xy_scaler 1 4
                             &zip_xy_to_scroll_mapper>;
@@ -746,7 +745,7 @@ Layer 4 には LCLK / RCLK / MCLK が配置されています。MB4 / MB5 は La
 };
 ```
 
-右側 overlay の `scroll_mode` は `layers = <3 6>;` です。split listener を使う場合は、利用する構成に合わせてその overlay にも同様の処理を設定します。
+右側 overlay の `scroll_mode` は `layers = <2 5>;` です。split listener を使う場合は、利用する構成に合わせてその overlay にも同様の処理を設定します。
 
 #### プロセッサの順序
 
@@ -755,10 +754,10 @@ Layer 4 には LCLK / RCLK / MCLK が配置されています。MB4 / MB5 は La
 ```dts
 input-processors = <&zip_xy_transform (...)
                     &zip_xy_scaler 5 8
-                    &zip_temp_layer 4 400>;
+                    &zip_temp_layer 3 400>;
 ```
 
-現在は軸反転の後に `5/8` スケーリングを行い、その後 Layer 4 を有効化しています。
+現在は軸反転の後に `5/8` スケーリングを行い、その後 Layer 3 を有効化しています。
 
 ### タイムアウト値の目安
 
@@ -771,13 +770,13 @@ input-processors = <&zip_xy_transform (...)
 
 ### 専用マウスレイヤーを新設する場合
 
-現在の Layer 4 がオートマウス用レイヤーとして定義されています。LCLK / RCLK / MCLK を配置し、それ以外は `&none` または `&trans` で不要なキーをブロックしています。
+現在の Layer 3 がオートマウス用レイヤーとして定義されています。LCLK / RCLK / MCLK を配置し、それ以外は `&none` または `&trans` で不要なキーをブロックしています。
 
-overlay の `zip_temp_layer` を Layer 4 に設定することで有効化できます:
+overlay の `zip_temp_layer` を Layer 3 に設定することで有効化できます:
 
 ```dts
 input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
-                    &zip_temp_layer 4 400>;
+                    &zip_temp_layer 3 400>;
 ```
 
 ### 注意事項
