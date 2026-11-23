@@ -102,6 +102,8 @@ Central 側で動作するカスタム省電力機能が実装されています
 
 `CONFIG_ZMK_STUDIO=y` が有効化されており、Web ベースの ZMK Studio からリアルタイムでキーマップを変更できます。
 
+KeyPeek のレイヤー表示用に、central 側のビルドには `raw_hid_adapter` を追加しています。ファームウェアを書き込んだ後、Bluetooth の再ペアリングが必要になる場合があります。
+
 ### 9. USB ブートローダートリガー
 
 `CONFIG_ZMK_CDC_ACM_BOOTLOADER_TRIGGER=y` により、USB CDC ACM 経由でブートローダーモードに入ることができます。
